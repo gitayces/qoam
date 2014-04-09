@@ -19,14 +19,14 @@
         public IEnumerable<KeyValuePair<Currency, string>> Currencies { get; set; }
         public ScoreCardState State { get; set; }
 
-        public void UpdateScoreCard(ScoreCard scoreCard, TimeSpan scoreCardLifeTime)
+        public void UpdateScoreCard(BaseScoreCard scoreCard, TimeSpan scoreCardLifeTime)
         {
             foreach (var questionScore in scoreCard.QuestionScores)
             {
                 questionScore.Score = this.QuestionScores.First(q => q.Id == questionScore.Id).Score;
             }
 
-            scoreCard.Score = new ScoreCardScore(scoreCard.QuestionScores);
+            scoreCard.Score = new BaseScoreCardScore(scoreCard.QuestionScores);
             scoreCard.Remarks = this.Remarks;
             scoreCard.Submitted = this.Submitted;
             scoreCard.Editor = this.Editor;

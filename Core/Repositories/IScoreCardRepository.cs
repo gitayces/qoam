@@ -9,16 +9,16 @@
 
     public interface IScoreCardRepository
     {
-        ScoreCard Find(int id);
-        ScoreCard Find(int journalId, int userProfileId);
-        IPagedList<ScoreCard> Find(ScoreCardFilter filter);
-        void Insert(ScoreCard scoreCard);
-        void Update(ScoreCard scoreCard);
+        BaseScoreCard Find(int id);
+        BaseScoreCard Find(int journalId, int userProfileId);
+        IPagedList<BaseScoreCard> Find(ScoreCardFilter filter);
+        void Insert(BaseScoreCard scoreCard);
+        void Update(BaseScoreCard scoreCard);
         void Save();
-        IPagedList<ScoreCard> FindForUser(ScoreCardFilter filter);
+        IPagedList<BaseScoreCard> FindForUser(ScoreCardFilter filter);
         ScoreCardStats CalculateStats(UserProfile userProfile);
         ScoreCardStats CalculateStats(Institution institution);
-        IList<ScoreCard> FindScoreCardsToBeArchived();
-        IList<ScoreCard> FindScoreCardsThatWillBeArchived(TimeSpan toBeArchivedWindow);
+        IList<BaseScoreCard> FindScoreCardsToBeArchived();
+        IList<BaseScoreCard> FindScoreCardsThatWillBeArchived(TimeSpan toBeArchivedWindow);
     }
 }

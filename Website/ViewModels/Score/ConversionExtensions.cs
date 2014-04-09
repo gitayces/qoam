@@ -8,7 +8,7 @@
 
     public static class ConversionExtensions
     {
-        public static ScoreViewModel ToViewModel(this ScoreCard scoreCard)
+        public static ScoreViewModel ToViewModel(this BaseScoreCard scoreCard)
         {
             Requires.NotNull(scoreCard, "scoreCard");
 

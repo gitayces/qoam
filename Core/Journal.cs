@@ -12,7 +12,8 @@
             this.JournalPrices = new List<JournalPrice>();
             this.JournalScores = new List<JournalScore>();
             this.Languages = new List<Language>();
-            this.ScoreCards = new List<ScoreCard>();
+            this.BaseScoreCards = new List<BaseScoreCard>();
+            this.ValuationScoreCards = new List<ValuationScoreCard>();
             this.Subjects = new List<Subject>();
         }
 
@@ -40,7 +41,8 @@
         public virtual ICollection<JournalPrice> JournalPrices { get; set; }
         public virtual ICollection<JournalScore> JournalScores { get; set; }
         public virtual ICollection<Language> Languages { get; set; }
-        public virtual ICollection<ScoreCard> ScoreCards { get; set; }
+        public virtual ICollection<BaseScoreCard> BaseScoreCards { get; set; }
+        public virtual ICollection<ValuationScoreCard> ValuationScoreCards { get; set; }
         public virtual ICollection<Subject> Subjects { get; set; }
     }
 }

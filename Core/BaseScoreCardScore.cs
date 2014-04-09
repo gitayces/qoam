@@ -6,9 +6,9 @@
 
     using Validation;
 
-    public class ScoreCardScore
+    public class BaseScoreCardScore
     {
-        public ScoreCardScore()
+        public BaseScoreCardScore()
         {
             this.EditorialInformationScore = new ScoreCardCategoryScore();
             this.PeerReviewScore = new ScoreCardCategoryScore();
@@ -18,7 +18,7 @@
             this.OverallScore = new ScoreCardCategoryScore();
         }
 
-        public ScoreCardScore(ICollection<QuestionScore> questionScores)
+        public BaseScoreCardScore(ICollection<QuestionScore> questionScores)
         {
             Requires.NotNull(questionScores, "questionScores");
 

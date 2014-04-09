@@ -69,8 +69,8 @@
                     return filter.SortDirection == SortDirection.Ascending ? query.OrderBy(u => u.Name) : query.OrderByDescending(u => u.Name);
                 case InstitutionSortMode.NumberOfJournalScoreCards:
                     return filter.SortDirection == SortDirection.Ascending ?
-                        query.OrderBy(u => u.NumberOfScoreCards).ThenBy(u => u.Name) :
-                        query.OrderByDescending(u => u.NumberOfScoreCards).ThenBy(u => u.Name);
+                        query.OrderBy(u => u.NumberOfBaseScoreCards).ThenBy(u => u.Name) :
+                        query.OrderByDescending(u => u.NumberOfBaseScoreCards).ThenBy(u => u.Name);
                 default:
                     throw new ArgumentOutOfRangeException();
             }

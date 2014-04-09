@@ -3,11 +3,11 @@
     using System;
     using System.Collections.Generic;
 
-    public class ScoreCard : Entity
+    public class BaseScoreCard : Entity
     {
-        public ScoreCard()
+        public BaseScoreCard()
         {
-            this.Score = new ScoreCardScore();
+            this.Score = new BaseScoreCardScore();
             this.QuestionScores = new List<QuestionScore>();
         }
 
@@ -18,7 +18,7 @@
         public int UserProfileId { get; set; }
         public int JournalId { get; set; }
         public int VersionId { get; set; }
-        public ScoreCardScore Score { get; set; }
+        public BaseScoreCardScore Score { get; set; }
         public ScoreCardState State { get; set; }
         public bool Submitted { get; set; }
         public bool Editor { get; set; }

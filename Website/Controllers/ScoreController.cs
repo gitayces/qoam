@@ -238,16 +238,16 @@
             return this.View(scoreCard);
         }
 
-        private ScoreCard CreateNewScoreCard(int id)
+        private BaseScoreCard CreateNewScoreCard(int id)
         {
-            return new ScoreCard
+            return new BaseScoreCard
                        {
                            DateStarted = DateTime.Now,
                            UserProfileId = this.Authentication.CurrentUserId,
                            Version = this.scoreCardVersionRepository.FindCurrent(),
                            Journal = this.journalRepository.Find(id),
                            QuestionScores = this.questionRepository.All.Select(q => new QuestionScore { Question = q, Score = Score.Undecided }).ToSet(),
-                           Score = new ScoreCardScore(),
+                           Score = new BaseScoreCardScore(),
                        };
         }
     }

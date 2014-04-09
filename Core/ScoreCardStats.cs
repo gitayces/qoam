@@ -2,8 +2,11 @@
 {
     public class ScoreCardStats
     {
-        public int NumberOfUnpublishedScoreCards { get; set; }
-        public int NumberOfPublishedScoreCards { get; set; }
-        public int NumberOfExpiredScoreCards { get; set; }
+        public int NumberOfUnpublishedBaseScoreCards { get; set; }
+        public int NumberOfPublishedBaseScoreCards { get; set; }
+        public int NumberOfExpiredBaseScoreCards { get; set; }
+        public int NumberOfUnpublishedValuationScoreCards { get; set; }
+        public int NumberOfPublishedValuationScoreCards { get; set; }
+        public int NumberOfExpiredValuationScoreCards { get; set; }
     }
 }

@@ -111,7 +111,7 @@
 
             if (filter.SubmittedOnly)
             {
-                query = query.Where(j => j.ScoreCards.Any(s => s.Submitted || s.Editor));
+                query = query.Where(j => j.BaseScoreCards.Any(s => s.Submitted || s.Editor));
             }
 
             if (filter.MustHaveBeenScored)

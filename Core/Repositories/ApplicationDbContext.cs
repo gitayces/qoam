@@ -20,7 +20,7 @@
 
         public DbSet<Journal> Journals { get; set; }
         public DbSet<JournalPrice> JournalsPrices { get; set; }
-        public DbSet<ScoreCard> ScoreCards { get; set; }
+        public DbSet<BaseScoreCard> ScoreCards { get; set; }
         public DbSet<ScoreCardVersion> ScoreCardVersions { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<Institution> Institutions { get; set; }
@@ -41,7 +41,7 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.ComplexType<ScoreCardScore>();
+            modelBuilder.ComplexType<BaseScoreCardScore>();
 
             modelBuilder.Entity<Journal>()
                 .HasOptional(t => t.JournalPrice)

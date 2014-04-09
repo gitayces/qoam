@@ -87,6 +87,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValuationScoreCardScore.cs" />
+    <Compile Include="ValuationScoreCard.cs" />
     <Compile Include="Export\ExportJournal.cs" />
     <Compile Include="Export\JournalsExport.cs" />
     <Compile Include="Helpers\ContextExtensions.cs" />
@@ -150,7 +152,7 @@
     <Compile Include="Repositories\SubjectRepository.cs" />
     <Compile Include="Repositories\UserProfileRepository.cs" />
     <Compile Include="ScoreCardCategoryScore.cs" />
-    <Compile Include="ScoreCardScore.cs" />
+    <Compile Include="BaseScoreCardScore.cs" />
     <Compile Include="ScoreCardStats.cs" />
     <Compile Include="ScoreCardVersion.cs" />
     <Compile Include="Scripts\ResourceReader.cs" />
@@ -192,7 +194,7 @@
     <Compile Include="Repositories\IPublisherRepository.cs" />
     <Compile Include="Repositories\IUserProfileRepository.cs" />
     <Compile Include="Repositories\Filters\JournalFilter.cs" />
-    <Compile Include="ScoreCard.cs" />
+    <Compile Include="BaseScoreCard.cs" />
     <Compile Include="UserProfile.cs" />
     <Compile Include="Web References\Ulrichs\Reference.cs">
       <AutoGen>True</AutoGen>

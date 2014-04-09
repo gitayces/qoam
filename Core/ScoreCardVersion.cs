@@ -6,7 +6,7 @@
     {
         public ScoreCardVersion()
         {
-            this.ScoreCards = new List<ScoreCard>();
+            this.ScoreCards = new List<BaseScoreCard>();
         }
 
         public int Number { get; set; }
@@ -17,6 +17,6 @@
         public int ProcessNumberOfQuestions { get; set; }
         public int ValuationNumberOfQuestions { get; set; }
 
-        public virtual ICollection<ScoreCard> ScoreCards { get; set; }
+        public virtual ICollection<BaseScoreCard> ScoreCards { get; set; }
     }
 }

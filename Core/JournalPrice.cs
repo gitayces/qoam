@@ -16,7 +16,7 @@
         public int JournalId { get; set; }
         public int ScoreCardId { get; set; }
         public int UserProfileId { get; set; }
-        public virtual ScoreCard ScoreCard { get; set; }
+        public virtual ValuationScoreCard ScoreCard { get; set; }
         public virtual Journal Journal { get; set; }
         public virtual UserProfile UserProfile { get; set; }
         public virtual ICollection<Journal> Journals { get; set; }

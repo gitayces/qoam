@@ -17,7 +17,7 @@
         {
         }
 
-        public ScoreCard Find(int id)
+        public BaseScoreCard Find(int id)
         {
             return this.DbContext.ScoreCards
                 .Include(s => s.Journal)
@@ -29,7 +29,7 @@
                 .First(s => s.Id == id);
         }
 
-        public ScoreCard Find(int journalId, int userProfileId)
+        public BaseScoreCard Find(int journalId, int userProfileId)
         {
             return this.DbContext.ScoreCards
                 .Include(s => s.Journal)
@@ -41,7 +41,7 @@
                 .FirstOrDefault(s => s.JournalId == journalId && s.UserProfileId == userProfileId);
         }
 
-        public IPagedList<ScoreCard> Find(ScoreCardFilter filter)
+        public IPagedList<BaseScoreCard> Find(ScoreCardFilter filter)
         {
             var query = this.DbContext.ScoreCards
                 .Include(s => s.UserProfile)
@@ -56,7 +56,7 @@
             return query.OrderByDescending(s => s.DatePublished).ToPagedList(filter.PageNumber, filter.PageSize);
         }
 
-        public IPagedList<ScoreCard> FindForUser(ScoreCardFilter filter)
+        public IPagedList<BaseScoreCard> FindForUser(ScoreCardFilter filter)
         {
             var query = this.DbContext.ScoreCards
                 .Include(s => s.Journal)
@@ -80,9 +80,9 @@
             
             return new ScoreCardStats
                        {
-                           NumberOfExpiredScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Expired).Select(g => g.Count).FirstOrDefault(),
-                           NumberOfPublishedScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Published).Select(g => g.Count).FirstOrDefault(),
-                           NumberOfUnpublishedScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Unpublished).Select(g => g.Count).FirstOrDefault(),
+                           NumberOfExpiredBaseScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Expired).Select(g => g.Count).FirstOrDefault(),
+                           NumberOfPublishedBaseScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Published).Select(g => g.Count).FirstOrDefault(),
+                           NumberOfUnpublishedBaseScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Unpublished).Select(g => g.Count).FirstOrDefault(),
                        };
         }
 
@@ -95,18 +95,18 @@
 
             return new ScoreCardStats
             {
-                NumberOfExpiredScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Expired).Select(g => g.Count).FirstOrDefault(),
-                NumberOfPublishedScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Published).Select(g => g.Count).FirstOrDefault(),
-                NumberOfUnpublishedScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Unpublished).Select(g => g.Count).FirstOrDefault(),
+                NumberOfExpiredBaseScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Expired).Select(g => g.Count).FirstOrDefault(),
+                NumberOfPublishedBaseScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Published).Select(g => g.Count).FirstOrDefault(),
+                NumberOfUnpublishedBaseScoreCards = groupedStates.Where(g => g.State == ScoreCardState.Unpublished).Select(g => g.Count).FirstOrDefault(),
             };
         }
 
-        public IList<ScoreCard> FindScoreCardsToBeArchived()
+        public IList<BaseScoreCard> FindScoreCardsToBeArchived()
         {
             return this.DbContext.ScoreCards.Where(s => s.State != ScoreCardState.Expired && s.DateExpiration < DateTime.Now).ToList();
         }
 
-        public IList<ScoreCard> FindScoreCardsThatWillBeArchived(TimeSpan toBeArchivedWindow)
+        public IList<BaseScoreCard> FindScoreCardsThatWillBeArchived(TimeSpan toBeArchivedWindow)
         {
             var soonToBeArchivedDate = DateTime.Now + toBeArchivedWindow;
 
@@ -116,12 +116,12 @@
                 .Where(s => s.State == ScoreCardState.Published && DbFunctions.TruncateTime(s.DateExpiration) == DbFunctions.TruncateTime(soonToBeArchivedDate)).ToList();
         }
 
-        public void Insert(ScoreCard scoreCard)
+        public void Insert(BaseScoreCard scoreCard)
         {
             this.DbContext.ScoreCards.Add(scoreCard);
         }
 
-        public void Update(ScoreCard scoreCard)
+        public void Update(BaseScoreCard scoreCard)
         {
             this.DbContext.Entry(scoreCard).State = EntityState.Modified;
         }

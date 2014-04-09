@@ -48,7 +48,7 @@
         public ViewResult Details(DetailsViewModel model)
         {
             model.UserProfile = this.UserProfileRepository.Find(model.Id);
-            model.ScoreCards = new StaticPagedList<ScoreCard>(new ScoreCard[0], 1, 1, 0);
+            model.ScoreCards = new StaticPagedList<BaseScoreCard>(new BaseScoreCard[0], 1, 1, 0);
             model.ScoreCards = this.scoreCardRepository.FindForUser(model.ToScoreCardFilter(this.GetScoreCardStateFilter(model.Id)));
             model.ScoreCardStats = this.scoreCardRepository.CalculateStats(model.UserProfile);
 
