@@ -34,7 +34,6 @@
         public ViewResult Login(string returnUrl)
         {
             this.ViewBag.ReturnUrl = returnUrl;
-            this.ViewBag.SurfContextClientData = this.Authentication.RegisteredClientData.First(c => c.AuthenticationClient.GetType() == typeof(SurfConextClient));
 
             return this.View();
         }
@@ -47,13 +46,6 @@
             this.Authentication.Logout();
 
             return this.RedirectToAction("Index", "Home");
-        }
-
-        [POST("externallogin")]
-        [ValidateAntiForgeryToken]
-        public ExternalLoginResult ExternalLogin(string provider, string returnUrl)
-        {
-            return new ExternalLoginResult(provider, this.Url.Action("ExternalLoginCallback", new { ReturnUrl = returnUrl }));
         }
 
         [GET("externallogincallback")]
@@ -120,7 +112,7 @@
         }
 
         [GET("externalloginfailure")]
-        public ViewResult ExternalLoginFailure(LoginFailureReason reason)
+        public ViewResult ExternalLoginFailure(LoginFailureReason reason = LoginFailureReason.ExternalAuthenticationFailed)
         {
             return this.View(reason);
         }

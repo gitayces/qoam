@@ -38,19 +38,6 @@
         }
 
         [Fact]
-        public void LoginStoresSurfContextClientDataInViewBag()
-        {
-            // Arrange
-            var accountController = CreateAccountController();
-
-            // Act
-            var viewResult = accountController.Login(ReturnUrl);
-
-            // Assert
-            Assert.IsType<SurfConextClient>(viewResult.ViewBag.SurfContextClientData.AuthenticationClient);
-        }
-
-        [Fact]
         public void LogOffDoesLogoutOfAuthenticatedUser()
         {
             // Arrange
@@ -76,32 +63,6 @@
             // Assert
             Assert.Equal("Home", redirectToRouteResult.RouteValues["controller"]);
             Assert.Equal("Index", redirectToRouteResult.RouteValues["action"]);
-        }
-
-        [Fact]
-        public void ExternalLoginReturnsExternalLoginResultWithPassedProvider()
-        {
-            // Arrange
-            var accountController = CreateAccountController();
-
-            // Act
-            var externalLoginResult = accountController.ExternalLogin(Provider, ReturnUrl);
-
-            // Assert
-            Assert.Equal(Provider, externalLoginResult.Provider);
-        }
-
-        [Fact]
-        public void ExternalLoginReturnsExternalLoginResultWithPassedReturnUrl()
-        {
-            // Arrange
-            var accountController = CreateAccountController();
-
-            // Act
-            var externalLoginResult = accountController.ExternalLogin(Provider, ReturnUrl);
-
-            // Assert
-            Assert.Equal("/account/externallogincallback?ReturnUrl=%2Fhome%2Fabout%2F", externalLoginResult.ReturnUrl);
         }
 
         [Fact]

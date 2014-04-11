@@ -12,6 +12,6 @@
     @Bootstrap.Error(Model.GetName())
     
     <p>
-        @Html.ActionLink(Strings.LogIn, "Login", "Account", null, new { @class = "btn btn-success" })
+        <a href="~/Login.ashx" class="btn btn-primary" title="@Strings.LogIn">@Strings.LogIn</a>
     </p>
 </div>

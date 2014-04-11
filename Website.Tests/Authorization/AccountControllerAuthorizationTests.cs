@@ -22,13 +22,6 @@
         }
 
         [Fact]
-        public void ExternalLoginActionDoesNotRequireAuthorizedUser()
-        {
-            // Assert
-            Assert.True(ActionDoesNotRequireAuthorizedUser(x => x.ExternalLogin(null, null)));
-        }
-
-        [Fact]
         public void ExternalLoginCallbackActionDoesNotRequireAuthorizedUser()
         {
             // Assert

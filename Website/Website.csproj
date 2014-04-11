@@ -246,6 +246,7 @@
     <Compile Include="Models\CacheProfile.cs" />
     <Compile Include="Models\AuthenticationResultExtensions.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\PersistentPseudonymMapper.cs" />
     <Compile Include="Models\GeneralSettings.cs" />
     <Compile Include="Models\OAMarketSettings.cs" />
     <Compile Include="Models\ContactSettings.cs" />
@@ -983,6 +984,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Persoonlijke projecten\saml2\src\SAML2\SAML2.csproj">
+      <Project>{75e5bad2-a20c-43cc-b5c8-38004cedbdfd}</Project>
+      <Name>SAML2</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{48695F3E-A754-4A33-B22B-86CD55939CC6}</Project>
       <Name>Core</Name>

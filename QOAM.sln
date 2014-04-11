@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "Core.Tests\Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.DataImporter.Tests", "Console.DataImporter.Tests\Console.DataImporter.Tests.csproj", "{8D4F553B-E05F-4FF9-B156-136ED315A2DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAML2", "..\..\Persoonlijke projecten\saml2\src\SAML2\SAML2.csproj", "{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -88,6 +90,12 @@ Global
 		{8D4F553B-E05F-4FF9-B156-136ED315A2DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8D4F553B-E05F-4FF9-B156-136ED315A2DB}.Staging|Any CPU.ActiveCfg = Release|Any CPU
 		{8D4F553B-E05F-4FF9-B156-136ED315A2DB}.Staging|Any CPU.Build.0 = Release|Any CPU
+		{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}.Staging|Any CPU.ActiveCfg = Release|Any CPU
+		{75E5BAD2-A20C-43CC-B5C8-38004CEDBDFD}.Staging|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

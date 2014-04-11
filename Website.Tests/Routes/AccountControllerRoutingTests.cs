@@ -40,20 +40,6 @@
         }
 
         [Fact]
-        public void ExternalLoginActionRoutedToWithCorrectUrlAndVerb()
-        {
-            // Assert    
-            "~/account/externallogin/".WithMethod(HttpVerbs.Post).ShouldMapTo<AccountController>(x => x.ExternalLogin(null, null));
-        }
-
-        [Fact]
-        public void ExternalLoginActionDoesNotRequireHttps()
-        {
-            // Assert
-            Assert.True(ActionRequiresHttps(x => x.ExternalLogin(null, null)));
-        }
-
-        [Fact]
         public void ExternalLoginCallbackActionRoutedToWithCorrectUrlAndVerb()
         {
             // Assert    
