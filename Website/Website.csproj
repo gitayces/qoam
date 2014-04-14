@@ -227,6 +227,7 @@
   <ItemGroup>
     <Compile Include="App_Start\AttributeRoutingConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\DatabaseConfig.cs" />
     <Compile Include="App_Start\DependencyInjectionConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -249,6 +250,7 @@
     <Compile Include="Models\CacheProfile.cs" />
     <Compile Include="Models\AuthenticationResultExtensions.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\SurfConextClient.cs" />
     <Compile Include="Models\PersistentPseudonymMapper.cs" />
     <Compile Include="Models\GeneralSettings.cs" />
     <Compile Include="Models\OAMarketSettings.cs" />
