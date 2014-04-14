@@ -5,7 +5,6 @@
 
     using SAML2;
     using SAML2.Actions;
-    using SAML2.Identity;
     using SAML2.Protocol;
 
     /// <summary>
@@ -33,14 +32,7 @@
         /// <param name="assertion">The SAML assertion of the currently logged in user.</param>
         public void SignOnAction(AbstractEndpointHandler handler, HttpContext context, Saml20Assertion assertion)
         {
-            var saml20Identity = HttpContext.Current.Session[typeof(Saml20Identity).FullName] as Saml20Identity;
-
-            if (saml20Identity == null)
-            {
-                return;
-            }
-
-            FormsAuthentication.SetAuthCookie(saml20Identity.Name, false);
+            // Note: we don't actually set the forms authentication action here as we will do it in the AccountController 
         }
 
         /// <summary>
