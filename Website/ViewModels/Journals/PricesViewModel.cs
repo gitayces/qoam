@@ -11,7 +11,7 @@
         public Journal Journal { get; set; }
         public InstitutionJournal InstitutionJournal { get; set; }
         public IPagedList<InstitutionJournal> InstitutionJournals { get; set; }
-        public IPagedList<JournalPrice> JournalPrices { get; set; }
+        public IPagedList<BaseJournalPrice> JournalPrices { get; set; }
         public string RefererUrl { get; set; }
 
         public InstitutionJournalFilter ToInstitutionJournalPriceFilter()

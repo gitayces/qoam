@@ -8,7 +8,7 @@
         public BaseScoreCard()
         {
             this.Score = new BaseScoreCardScore();
-            this.QuestionScores = new List<QuestionScore>();
+            this.QuestionScores = new List<BaseQuestionScore>();
         }
 
         public DateTime DateStarted { get; set; }
@@ -25,6 +25,6 @@
         public virtual UserProfile UserProfile { get; set; }
         public virtual Journal Journal { get; set; }
         public virtual ScoreCardVersion Version { get; set; }
-        public virtual ICollection<QuestionScore> QuestionScores { get; set; }
+        public virtual ICollection<BaseQuestionScore> QuestionScores { get; set; }
     }
 }

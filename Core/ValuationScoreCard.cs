@@ -8,7 +8,7 @@
         public ValuationScoreCard()
         {
             this.Score = new ValuationScoreCardScore();
-            this.QuestionScores = new List<QuestionScore>();
+            this.QuestionScores = new List<ValuationQuestionScore>();
         }
 
         public DateTime DateStarted { get; set; }
@@ -26,6 +26,7 @@
         public virtual UserProfile UserProfile { get; set; }
         public virtual Journal Journal { get; set; }
         public virtual ScoreCardVersion Version { get; set; }
-        public virtual ICollection<QuestionScore> QuestionScores { get; set; }
+        public virtual ICollection<ValuationQuestionScore> QuestionScores { get; set; }
+        public int BaseScoreCardId { get; set; }
     }
 }

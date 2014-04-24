@@ -15,17 +15,17 @@
         {
         }
 
-        public JournalPrice Find(int id)
+        public BaseJournalPrice Find(int id)
         {
             return this.DbContext.JournalsPrices.Find(id);
         }
 
-        public JournalPrice Find(int journalId, int userProfileId)
+        public BaseJournalPrice Find(int journalId, int userProfileId)
         {
             return this.DbContext.JournalsPrices.FirstOrDefault(j => j.JournalId == journalId && j.UserProfileId == userProfileId);
         }
 
-        public IPagedList<JournalPrice> Find(JournalPriceFilter filter)
+        public IPagedList<BaseJournalPrice> Find(JournalPriceFilter filter)
         {
             var query = this.DbContext.JournalsPrices.Include(j => j.UserProfile);
 
@@ -42,17 +42,17 @@
             return query.OrderByDescending(j => j.DateAdded).ToPagedList(filter.PageNumber, filter.PageSize);
         }
 
-        public void Insert(JournalPrice journalPrice)
+        public void Insert(BaseJournalPrice journalPrice)
         {
             this.DbContext.JournalsPrices.Add(journalPrice);
         }
 
-        public void Update(JournalPrice journalPrice)
+        public void Update(BaseJournalPrice journalPrice)
         {
             this.DbContext.Entry(journalPrice).State = EntityState.Modified;
         }
 
-        public void Delete(JournalPrice journalPrice)
+        public void Delete(BaseJournalPrice journalPrice)
         {
             this.DbContext.JournalsPrices.Remove(journalPrice);
         }

@@ -125,7 +125,7 @@
                         }
 
                         var journalPrice = model.Price.ToJournalPrice();
-                        journalPrice.ScoreCardId = scoreCard.Id;
+                        journalPrice.BaseScoreCardId = scoreCard.Id;
                         journalPrice.JournalId = model.Journal.Id;
                         journalPrice.UserProfileId = this.Authentication.CurrentUserId;
                         journalPrice.DateAdded = DateTime.Now;
@@ -151,8 +151,8 @@
                     }
                     else
                     {
-                        var journalPrice = new JournalPrice();
-                        journalPrice.ScoreCardId = scoreCard.Id;
+                        var journalPrice = new BaseJournalPrice();
+                        journalPrice.BaseScoreCardId = scoreCard.Id;
                         journalPrice.UserProfileId = this.Authentication.CurrentUserId;
                         journalPrice.DateAdded = DateTime.Now;
                         journalPrice.Price.FeeType = model.Price.FeeType;
@@ -183,7 +183,7 @@
                             model.Price.FeeType = FeeType.Article; // set the default for backwards compatibility
                         }
 
-                        journalPrice.ScoreCardId = scoreCard.Id;
+                        journalPrice.BaseScoreCardId = scoreCard.Id;
                         journalPrice.DateAdded = DateTime.Now;
                         journalPrice.Price.Amount = model.Price.Amount;
                         journalPrice.Price.Currency = model.Price.Currency;
@@ -246,7 +246,7 @@
                            UserProfileId = this.Authentication.CurrentUserId,
                            Version = this.scoreCardVersionRepository.FindCurrent(),
                            Journal = this.journalRepository.Find(id),
-                           QuestionScores = this.questionRepository.All.Select(q => new QuestionScore { Question = q, Score = Score.Undecided }).ToSet(),
+                           QuestionScores = this.questionRepository.All.Select(q => new BaseQuestionScore { Question = q, Score = Score.Undecided }).ToSet(),
                            Score = new BaseScoreCardScore(),
                        };
         }

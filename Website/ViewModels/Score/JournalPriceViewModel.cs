@@ -11,9 +11,9 @@
         public Currency? Currency { get; set; }
         public FeeType? FeeType{ get; set; }
 
-        public JournalPrice ToJournalPrice()
+        public BaseJournalPrice ToJournalPrice()
         {
-            return new JournalPrice
+            return new BaseJournalPrice
                        {
                            Price = new Price { Amount = this.Amount, Currency = this.Currency, FeeType = this.FeeType}
                        };

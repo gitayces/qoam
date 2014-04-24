@@ -40,7 +40,7 @@
             };
         }
 
-        public static JournalPriceViewModel ToViewModel(this JournalPrice journalPrice)
+        public static JournalPriceViewModel ToViewModel(this BaseJournalPrice journalPrice)
         {
             if (journalPrice == null)
             {
@@ -56,7 +56,7 @@
             };
         }
 
-        public static QuestionScoreViewModel ToViewModel(this QuestionScore questionScore)
+        public static QuestionScoreViewModel ToViewModel(this BaseQuestionScore questionScore)
         {
             Requires.NotNull(questionScore, "questionScore");
 
@@ -66,7 +66,7 @@
                            QuestionId = questionScore.QuestionId,
                            QuestionKey = questionScore.Question.Key,
                            QuestionCategory = questionScore.Question.Category,
-                           ScoreCardId = questionScore.ScoreCardId,
+                           ScoreCardId = questionScore.BaseScoreCardId,
                            Score = questionScore.Score
                        };
         }

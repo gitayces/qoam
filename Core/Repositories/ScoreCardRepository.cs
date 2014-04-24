@@ -19,7 +19,7 @@
 
         public BaseScoreCard Find(int id)
         {
-            return this.DbContext.ScoreCards
+            return this.DbContext.BaseScoreCards
                 .Include(s => s.Journal)
                 .Include(s => s.Journal.Publisher)
                 .Include(s => s.Journal.Languages)
@@ -31,7 +31,7 @@
 
         public BaseScoreCard Find(int journalId, int userProfileId)
         {
-            return this.DbContext.ScoreCards
+            return this.DbContext.BaseScoreCards
                 .Include(s => s.Journal)
                 .Include(s => s.Journal.Publisher)
                 .Include(s => s.Journal.Languages)
@@ -43,7 +43,7 @@
 
         public IPagedList<BaseScoreCard> Find(ScoreCardFilter filter)
         {
-            var query = this.DbContext.ScoreCards
+            var query = this.DbContext.BaseScoreCards
                 .Include(s => s.UserProfile)
                 .Where(s => s.JournalId == filter.JournalId)
                 .Where(s => s.State == ScoreCardState.Published);
@@ -58,7 +58,7 @@
 
         public IPagedList<BaseScoreCard> FindForUser(ScoreCardFilter filter)
         {
-            var query = this.DbContext.ScoreCards
+            var query = this.DbContext.BaseScoreCards
                 .Include(s => s.Journal)
                 .Include(s => s.Journal.JournalScore)
                 .Where(s => s.UserProfileId == filter.UserProfileId);
@@ -73,7 +73,7 @@
 
         public ScoreCardStats CalculateStats(UserProfile userProfile)
         {
-            var groupedStates = this.DbContext.ScoreCards.Where(s => s.UserProfileId == userProfile.Id)
+            var groupedStates = this.DbContext.BaseScoreCards.Where(s => s.UserProfileId == userProfile.Id)
                                     .GroupBy(s => s.State)
                                     .Select(g => new { State = g.Key, Count = g.Count() })
                                     .ToList();
@@ -88,7 +88,7 @@
 
         public ScoreCardStats CalculateStats(Institution institution)
         {
-            var groupedStates = this.DbContext.ScoreCards.Where(s => s.UserProfile.InstitutionId == institution.Id)
+            var groupedStates = this.DbContext.BaseScoreCards.Where(s => s.UserProfile.InstitutionId == institution.Id)
                                     .GroupBy(s => s.State)
                                     .Select(g => new { State = g.Key, Count = g.Count() })
                                     .ToList();
@@ -103,14 +103,14 @@
 
         public IList<BaseScoreCard> FindScoreCardsToBeArchived()
         {
-            return this.DbContext.ScoreCards.Where(s => s.State != ScoreCardState.Expired && s.DateExpiration < DateTime.Now).ToList();
+            return this.DbContext.BaseScoreCards.Where(s => s.State != ScoreCardState.Expired && s.DateExpiration < DateTime.Now).ToList();
         }
 
         public IList<BaseScoreCard> FindScoreCardsThatWillBeArchived(TimeSpan toBeArchivedWindow)
         {
             var soonToBeArchivedDate = DateTime.Now + toBeArchivedWindow;
 
-            return this.DbContext.ScoreCards
+            return this.DbContext.BaseScoreCards
                 .Include(s => s.Journal)
                 .Include(s => s.UserProfile)
                 .Where(s => s.State == ScoreCardState.Published && DbFunctions.TruncateTime(s.DateExpiration) == DbFunctions.TruncateTime(soonToBeArchivedDate)).ToList();
@@ -118,7 +118,7 @@
 
         public void Insert(BaseScoreCard scoreCard)
         {
-            this.DbContext.ScoreCards.Add(scoreCard);
+            this.DbContext.BaseScoreCards.Add(scoreCard);
         }
 
         public void Update(BaseScoreCard scoreCard)

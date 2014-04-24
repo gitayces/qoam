@@ -9,7 +9,7 @@
         public Journal()
         {
             this.InstitutionJournalPrices = new List<InstitutionJournal>();
-            this.JournalPrices = new List<JournalPrice>();
+            this.JournalPrices = new List<BaseJournalPrice>();
             this.JournalScores = new List<JournalScore>();
             this.Languages = new List<Language>();
             this.BaseScoreCards = new List<BaseScoreCard>();
@@ -36,9 +36,9 @@
         public virtual Country Country { get; set; }
         public virtual Publisher Publisher { get; set; }
         public virtual JournalScore JournalScore { get; set; }
-        public virtual JournalPrice JournalPrice { get; set; }
+        public virtual BaseJournalPrice JournalPrice { get; set; }
         public virtual ICollection<InstitutionJournal> InstitutionJournalPrices { get; set; }
-        public virtual ICollection<JournalPrice> JournalPrices { get; set; }
+        public virtual ICollection<BaseJournalPrice> JournalPrices { get; set; }
         public virtual ICollection<JournalScore> JournalScores { get; set; }
         public virtual ICollection<Language> Languages { get; set; }
         public virtual ICollection<BaseScoreCard> BaseScoreCards { get; set; }

@@ -6,13 +6,13 @@
 
     public interface IJournalPriceRepository
     {
-        JournalPrice Find(int id);
-        JournalPrice Find(int journalId, int userProfileId);
-        IPagedList<JournalPrice> Find(JournalPriceFilter filter);
+        BaseJournalPrice Find(int id);
+        BaseJournalPrice Find(int journalId, int userProfileId);
+        IPagedList<BaseJournalPrice> Find(JournalPriceFilter filter);
 
-        void Insert(JournalPrice journalPrice);
-        void Update(JournalPrice journalPrice);
-        void Delete(JournalPrice journalPrice);
+        void Insert(BaseJournalPrice journalPrice);
+        void Update(BaseJournalPrice journalPrice);
+        void Delete(BaseJournalPrice journalPrice);
         void Save();
     }
 }

@@ -116,7 +116,7 @@
 
             if (filter.MustHaveBeenScored)
             {
-                query = query.Where(j => j.JournalScore.NumberOfReviewers > 0);
+                query = query.Where(j => j.JournalScore.NumberOfBaseReviewers > 0);
             }
 
             return ApplyOrdering(query, filter).ToPagedList(filter.PageNumber, filter.PageSize);
@@ -170,7 +170,7 @@
 
         public int ScoredJournalsCount()
         {
-            return this.DbContext.Journals.Count(j => j.JournalScore.NumberOfReviewers > 0);
+            return this.DbContext.Journals.Count(j => j.JournalScore.NumberOfBaseReviewers > 0);
         }
 
         public IList<Journal> AllIncluding(params Expression<Func<Journal, object>>[] includeProperties)

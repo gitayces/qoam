@@ -18,7 +18,7 @@
             this.OverallScore = new ScoreCardCategoryScore();
         }
 
-        public BaseScoreCardScore(ICollection<QuestionScore> questionScores)
+        public BaseScoreCardScore(ICollection<BaseQuestionScore> questionScores)
         {
             Requires.NotNull(questionScores, "questionScores");
 
@@ -59,7 +59,7 @@
             }
         }
         
-        private static ScoreCardCategoryScore CalculateScoreForCategory(IEnumerable<QuestionScore> questionScores, QuestionCategory questionCategory)
+        private static ScoreCardCategoryScore CalculateScoreForCategory(IEnumerable<BaseQuestionScore> questionScores, QuestionCategory questionCategory)
         {
             var categoryScores = questionScores.Where(q => q.Question.Category == questionCategory).ToList();
 
