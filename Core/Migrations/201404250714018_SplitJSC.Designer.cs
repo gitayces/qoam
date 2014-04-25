@@ -13,7 +13,7 @@ namespace QOAM.Core.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201404241322163_SplitJSC"; }
+            get { return "201404250714018_SplitJSC"; }
         }
         
         string IMigrationMetadata.Source
