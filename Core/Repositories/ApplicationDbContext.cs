@@ -52,6 +52,11 @@
                 .HasForeignKey(d => d.BaseJournalPriceId);
 
             modelBuilder.Entity<Journal>()
+                .HasOptional(t => t.ValuationJournalPrice)
+                .WithMany(t => t.Journals)
+                .HasForeignKey(d => d.ValuationJournalPriceId);
+
+            modelBuilder.Entity<Journal>()
                 .HasOptional(t => t.JournalScore)
                 .WithMany(t => t.Journals)
                 .HasForeignKey(d => d.JournalScoreId);
