@@ -88,9 +88,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseQuestionScore.cs" />
-    <Compile Include="Migrations\201404300749017_SplitJSC.cs" />
-    <Compile Include="Migrations\201404300749017_SplitJSC.Designer.cs">
-      <DependentUpon>201404300749017_SplitJSC.cs</DependentUpon>
+    <Compile Include="Migrations\201404301016419_SplitJSC.cs" />
+    <Compile Include="Migrations\201404301016419_SplitJSC.Designer.cs">
+      <DependentUpon>201404301016419_SplitJSC.cs</DependentUpon>
     </Compile>
     <Compile Include="ValuationJournalPrice.cs" />
     <Compile Include="ValuationQuestionScore.cs" />
@@ -228,8 +228,8 @@
     <EmbeddedResource Include="Migrations\201403171503325_InitialCreate.resx">
       <DependentUpon>201403171503325_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404300749017_SplitJSC.resx">
-      <DependentUpon>201404300749017_SplitJSC.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201404301016419_SplitJSC.resx">
+      <DependentUpon>201404301016419_SplitJSC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

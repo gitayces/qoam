@@ -27,5 +27,6 @@
         public virtual Journal Journal { get; set; }
         public virtual ScoreCardVersion Version { get; set; }
         public virtual ICollection<ValuationQuestionScore> QuestionScores { get; set; }
+        public int BaseScoreCardId { get; set; }
     }
 }
