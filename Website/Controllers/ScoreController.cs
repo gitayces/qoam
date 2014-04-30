@@ -145,7 +145,7 @@
                         this.journalPriceRepository.Insert(journalPrice);
 
                         var journal = this.journalRepository.Find(model.Journal.Id);
-                        journal.JournalPrice = journalPrice;
+                        journal.BaseJournalPrice = journalPrice;
 
                         this.journalRepository.Update(journal);
                     }
@@ -200,7 +200,7 @@
                         this.journalPriceRepository.Update(journalPrice);
 
                         var journal = this.journalRepository.Find(model.Journal.Id);
-                        journal.JournalPrice = journalPrice;
+                        journal.BaseJournalPrice = journalPrice;
 
                         this.journalRepository.Update(journal);
                     }

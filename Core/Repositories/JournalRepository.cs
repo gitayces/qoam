@@ -72,7 +72,7 @@
                 .Include(j => j.Languages)
                 .Include(j => j.Subjects)
                 .Include(j => j.JournalScore)
-                .Include(j => j.JournalPrice);
+                .Include(j => j.BaseJournalPrice);
 
             if (!string.IsNullOrWhiteSpace(filter.Title))
             {

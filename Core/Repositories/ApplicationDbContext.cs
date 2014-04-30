@@ -31,6 +31,7 @@
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<ValuationJournalPrice> ValuationJournalPrices { get; set; }
 
         public ObjectContext ObjectContext
         {
@@ -46,9 +47,9 @@
             modelBuilder.ComplexType<ValuationScoreCardScore>();
 
             modelBuilder.Entity<Journal>()
-                .HasOptional(t => t.JournalPrice)
+                .HasOptional(t => t.BaseJournalPrice)
                 .WithMany(t => t.Journals)
-                .HasForeignKey(d => d.JournalPriceId);
+                .HasForeignKey(d => d.BaseJournalPriceId);
 
             modelBuilder.Entity<Journal>()
                 .HasOptional(t => t.JournalScore)
