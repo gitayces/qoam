@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201404301016419_SplitJSC.Designer.cs">
       <DependentUpon>201404301016419_SplitJSC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405071404008_ConvertDataAfterSplit.cs" />
+    <Compile Include="Migrations\201405071404008_ConvertDataAfterSplit.Designer.cs">
+      <DependentUpon>201405071404008_ConvertDataAfterSplit.cs</DependentUpon>
+    </Compile>
     <Compile Include="ValuationJournalPrice.cs" />
     <Compile Include="ValuationQuestionScore.cs" />
     <Compile Include="ValuationScoreCardScore.cs" />
@@ -231,6 +235,9 @@
     <EmbeddedResource Include="Migrations\201404301016419_SplitJSC.resx">
       <DependentUpon>201404301016419_SplitJSC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405071404008_ConvertDataAfterSplit.resx">
+      <DependentUpon>201405071404008_ConvertDataAfterSplit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
@@ -257,6 +264,7 @@
     <EmbeddedResource Include="Scripts\201403171503325_InitialCreate_MembershipTables.sql" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\Copy after split JSC.sql" />
     <EmbeddedResource Include="Scripts\201403171503325_InitialCreate_trigger_Scorecards.Published.sql" />
     <EmbeddedResource Include="Scripts\20140409_Trigger_BaseScorecards.Published.sql" />
     <EmbeddedResource Include="Scripts\20140409_Trigger_ValuationScorecards.Published.sql" />

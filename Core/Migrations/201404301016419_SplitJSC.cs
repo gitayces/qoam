@@ -39,9 +39,6 @@ namespace QOAM.Core.Migrations
                         BaseScoreCardId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.UserProfiles", t => t.UserProfileId, cascadeDelete: false)
-                .ForeignKey("dbo.Journals", t => t.JournalId, cascadeDelete: true)
-                .ForeignKey("dbo.ScoreCardVersions", t => t.VersionId, cascadeDelete: true)
                 .Index(t => t.UserProfileId)
                 .Index(t => t.JournalId)
                 .Index(t => t.VersionId);
@@ -56,7 +53,6 @@ namespace QOAM.Core.Migrations
                         QuestionId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.ValuationScoreCards", t => t.ValuationScoreCardId, cascadeDelete: true)
                 .ForeignKey("dbo.Questions", t => t.QuestionId, cascadeDelete: true)
                 .Index(t => t.ValuationScoreCardId)
                 .Index(t => t.QuestionId);
@@ -75,9 +71,6 @@ namespace QOAM.Core.Migrations
                         UserProfileId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Journals", t => t.JournalId, cascadeDelete: true)
-                .ForeignKey("dbo.UserProfiles", t => t.UserProfileId, cascadeDelete: true)
-                .ForeignKey("dbo.ValuationScoreCards", t => t.ValuationScoreCardId, cascadeDelete: false)
                 .Index(t => t.JournalId)
                 .Index(t => t.ValuationScoreCardId)
                 .Index(t => t.UserProfileId);
@@ -90,7 +83,6 @@ namespace QOAM.Core.Migrations
             RenameColumn(table: "dbo.Institutions", name: "NumberOfScoreCards", newName: "NumberOfBaseScoreCards");
             AddColumn("dbo.Institutions", "NumberOfValuationScoreCards", c => c.Int(nullable: false));
             CreateIndex("dbo.Journals", "ValuationJournalPriceId");
-            AddForeignKey("dbo.Journals", "ValuationJournalPriceId", "dbo.ValuationJournalPrices", "Id");
 
             AlterColumn("dbo.Institutions", "NumberOfBaseScoreCards", c => c.Int(nullable: false, defaultValue: 0));
             AlterColumn("dbo.Institutions", "NumberOfValuationScoreCards", c => c.Int(nullable: false, defaultValue: 0));
